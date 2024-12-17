@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:travel/views/homescreen/home_scree.dart';
+import 'package:travel/views/language_screen.dart';
+import 'package:travel/views/login_screen.dart';
 import 'package:travel/views/onbording_screen.dart';
+import 'package:travel/views/otp_screen.dart';
 import 'package:travel/views/splash_screen.dart';
 
-enum Routes { SplashScreen, OnbordingScreen }
+enum Routes {
+  SplashScreen,
+  OnbordingScreen,
+  LoginScreen,
+  otpscreen,
+  LanguageScreen,
+  homeScreen,
+}
 
 void main() {
   runApp(Travel());
@@ -24,14 +35,35 @@ class Travel extends StatelessWidget {
       name: Routes.OnbordingScreen.name,
       builder: (context, state) => OnbordingScreen(),
     ),
+    GoRoute(
+      path: "/LoginScreen",
+      name: Routes.LoginScreen.name,
+      builder: (context, state) => LoginScreen(),
+    ),
+    GoRoute(
+      path: "/otpscreen",
+      name: Routes.otpscreen.name,
+      builder: (context, state) => OtpScreen(),
+    ),
+    GoRoute(
+      path: "/languagescreen",
+      name: Routes.LanguageScreen.name,
+      builder: (context, state) => LanguageScreen(),
+    ),
+    GoRoute(
+      path: "/homeScreen",
+      name: Routes.homeScreen.name,
+      builder: (context, state) => HomeScreen(),
+    ),
   ]);
 
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-        designSize: Size(393, 852),
-        child: MaterialApp.router(
-          routerConfig: router,
-        ));
+      designSize: Size(393, 852),
+      child: MaterialApp.router(
+        routerConfig: router,
+      ),
+    );
   }
 }

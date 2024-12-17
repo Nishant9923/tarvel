@@ -101,5 +101,21 @@ flutter:
       fonts:
         - asset: assets/fonts/Manrope-Bold.ttf
 
+    - family: Manrope-Light
+      fonts:
+        - asset: assets/fonts/Manrope-Light.ttf
+
+    - family: Manrope-Medium
+      fonts:
+        - asset: assets/fonts/Manrope-Medium.ttf
+
+    - family: Manrope-SemiBold
+      fonts:
+        - asset: assets/fonts/Manrope-SemiBold.ttf
+
+    - family: Roboto-Regular
+      fonts:
+        - asset: assets/fonts/Roboto-Regular.ttf
+
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
