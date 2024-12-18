@@ -117,5 +117,17 @@ flutter:
       fonts:
         - asset: assets/fonts/Roboto-Regular.ttf
 
+    - family: Inter-Regular
+      fonts:
+        - asset: assets/fonts/Inter-Regular.ttf
+
+    - family: Inter-SemiBold
+      fonts:
+        - asset: assets/fonts/Inter-SemiBold.ttf
+
+    - family: Inter-Bold
+      fonts:
+        - asset: assets/fonts/Inter-Bold.ttf
+
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package

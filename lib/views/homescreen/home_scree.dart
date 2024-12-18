@@ -9,6 +9,15 @@ import 'package:travel/main.dart';
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
+  final List<String> names = [
+    'Top Offers',
+    'Flights',
+    'Hotels',
+    'Bus',
+  ];
+
+  int selectedtabindex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -145,45 +154,532 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            Text(
-                              'AI Trip Planner',
-                              style: TextStyle(
-                                fontFamily: Typo.ManropeSemiBold,
-                                fontSize: 13,
-                                color: Colors.white,
+                            Padding(
+                              padding: const EdgeInsets.only(top: 15),
+                              child: Text(
+                                'AI Trip Planner',
+                                style: TextStyle(
+                                  fontFamily: Typo.ManropeSemiBold,
+                                  fontSize: 13,
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
                             SizedBox(
                               width: 5,
                             ),
                             SvgPicture.asset(
-                              Assetsurl.icstar,
+                              height: 15.h,
+                              Assetsurl.icaiplaner,
                               color: Colors.white,
                             ),
                           ],
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(top: 100),
+                          padding: const EdgeInsets.only(top: 80),
                           child: Container(
                             decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(5),
                             ),
                             height: 29.h,
-                            width: 110.w,
+                            width: 125.w,
                             child: Center(
-                              child: Text(
-                                "Start Planning",
-                                style: TextStyle(
-                                  fontFamily: Typo.ManropeBold,
-                                  fontSize: 12,
-                                  color: Color(0xff686F81),
+                              child: TextButton(
+                                onPressed: () {},
+                                child: Text(
+                                  "Start Planning",
+                                  style: TextStyle(
+                                    fontFamily: Typo.ManropeBold,
+                                    fontSize: 12,
+                                    color: Color(0xff686F81),
+                                  ),
                                 ),
                               ),
                             ),
                           ),
                         )
                       ],
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 20.h,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Top Destinations",
+                    style: TextStyle(
+                      fontFamily: Typo.InterBold,
+                      fontSize: 16,
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "See all",
+                      style: TextStyle(
+                        fontFamily: Typo.InterRegular,
+                        fontSize: 14,
+                        color: AppColors.blueAccent,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 500,
+                child: GridView(
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 25,
+                      crossAxisSpacing: 25,
+                      mainAxisExtent: 200),
+                  children: List.generate(
+                    4,
+                    (index) {
+                      final List<String> imageadd = [
+                        Assetsurl.icparis,
+                        Assetsurl.icbail,
+                        Assetsurl.icjapan,
+                        Assetsurl.iciceland,
+                      ];
+                      final List<String> names = [
+                        "Paris",
+                        "Bail",
+                        "Japan",
+                        "Iceland",
+                      ];
+
+                      return Container(
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: AssetImage(imageadd[index]),
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 150, left: 120),
+                          child: Text(
+                            names[index],
+                            style: TextStyle(
+                              fontFamily: Typo.InterSemiBold,
+                              fontSize: 16,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 15.h,
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    Image.asset(
+                      Assetsurl.ictimetraavel,
+                    ),
+                    Image.asset(Assetsurl.ictimetraavel),
+                    Image.asset(Assetsurl.ictimetraavel),
+                    Image.asset(Assetsurl.ictimetraavel),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 15.h,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Journey together",
+                    style: TextStyle(
+                      fontFamily: Typo.InterSemiBold,
+                      fontSize: 16,
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "See all",
+                      style: TextStyle(
+                        fontFamily: Typo.InterRegular,
+                        fontSize: 14,
+                        color: AppColors.blueAccent,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 15.h,
+              ),
+              Container(
+                height: 250.h,
+                width: 345.h,
+                color: Colors.white,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Image.asset(
+                      fit: BoxFit.cover,
+                      height: 200,
+                      width: double.infinity,
+                      Assetsurl.icrect3,
+                    ),
+                    Text(
+                      "Mount Bromo",
+                      style: TextStyle(
+                        fontFamily: Typo.InterSemiBold,
+                        fontSize: 14,
+                        color: AppColors.blackboldcolor,
+                      ),
+                    ),
+                    Text(
+                      "Volcano in East Java",
+                      style: TextStyle(
+                        fontFamily: Typo.InterRegular,
+                        fontSize: 9.sp,
+                        color: AppColors.secondaryColor,
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 20),
+                          child: SvgPicture.asset(
+                            Assetsurl.icrating,
+                            color: Colors.amber,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 20),
+                          child: Text(
+                            '4.9',
+                            style: TextStyle(
+                              fontFamily: Typo.InterRegular,
+                              fontSize: 9.sp,
+                              color: AppColors.secondaryColor,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 160),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Start from',
+                                style: TextStyle(
+                                    fontFamily: Typo.InterRegular,
+                                    fontSize: 10.sp,
+                                    color: AppColors.secondaryColor),
+                              ),
+                              Text(
+                                'Rs.56,150/per',
+                                style: TextStyle(
+                                  fontFamily: Typo.InterRegular,
+                                  fontSize: 10.sp,
+                                  color: AppColors.textcolor,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          width: 8.w,
+                        ),
+                        ElevatedButton(
+                          style: ButtonStyle(
+                            backgroundColor: WidgetStatePropertyAll(
+                              Colors.blue,
+                            ),
+                          ),
+                          onPressed: () {},
+                          child: Text(
+                            "3D2N",
+                            style: TextStyle(
+                              fontFamily: Typo.InterRegular,
+                              fontSize: 12.sp,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 10.h,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Categories",
+                    style: TextStyle(
+                      fontFamily: Typo.InterSemiBold,
+                      fontSize: 16,
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "See all",
+                      style: TextStyle(
+                        fontFamily: Typo.InterRegular,
+                        fontSize: 14,
+                        color: AppColors.blueAccent,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              GridView(
+                physics: NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 20,
+                  crossAxisSpacing: 20,
+                  mainAxisExtent: 300,
+                ),
+                children: List.generate(
+                  2,
+                  (index) {
+                    final List<String> image = [
+                      Assetsurl.icbeach,
+                      Assetsurl.icmountain,
+                    ];
+                    final List<String> name = [
+                      "Beach",
+                      "Mountains",
+                    ];
+                    return Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                        image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: AssetImage(image[index]),
+                        ),
+                      ),
+                      child: Stack(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 255, left: 9),
+                            child: Text(
+                              name[index],
+                              style: TextStyle(
+                                fontFamily: Typo.InterBold,
+                                fontSize: 15,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                ),
+              ),
+              SizedBox(
+                height: 27.h,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Most Visited Places',
+                    style: TextStyle(
+                        fontFamily: Typo.InterSemiBold,
+                        fontSize: 16,
+                        color: AppColors.textcolor),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'See all',
+                      style: TextStyle(
+                          fontFamily: Typo.InterRegular,
+                          fontSize: 14,
+                          color: AppColors.blueAccent),
+                    ),
+                  ),
+                ],
+              ),
+              GridView(
+                physics: NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 20,
+                  crossAxisSpacing: 20,
+                  mainAxisExtent: 300,
+                ),
+                children: List.generate(
+                  2,
+                  (index) {
+                    final List<String> image = [
+                      Assetsurl.icjapan,
+                      Assetsurl.icmaldives,
+                    ];
+                    final List<String> name = [
+                      "Japan",
+                      "Maldives",
+                    ];
+                    return Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                        image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: AssetImage(image[index]),
+                        ),
+                      ),
+                      child: Stack(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 255, left: 9),
+                            child: Text(
+                              name[index],
+                              style: TextStyle(
+                                fontFamily: Typo.InterBold,
+                                fontSize: 15,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                ),
+              ),
+              SizedBox(
+                height: 15.h,
+              ),
+              Row(
+                children: [
+                  SvgPicture.asset(
+                    height: 20.h,
+                    Assetsurl.icbxs,
+                  ),
+                  SizedBox(width: 3.w),
+                  Text(
+                    "Special Offer",
+                    style: TextStyle(
+                      fontFamily: Typo.InterSemiBold,
+                      fontSize: 16,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 150.w,
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "See all",
+                      style: TextStyle(
+                        fontFamily: Typo.InterRegular,
+                        fontSize: 14,
+                        color: AppColors.blueAccent,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 15.h,
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      height: 29.h,
+                      width: 90.w,
+                      child: Text(
+                        "Top Offers",
+                        style: TextStyle(
+                            fontFamily: Typo.InterRegular,
+                            fontSize: 14,
+                            color: AppColors.secondaryColor),
+                      ),
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      height: 29.h,
+                      width: 90.w,
+                      child: Text(
+                        "flight",
+                        style: TextStyle(
+                            fontFamily: Typo.InterRegular,
+                            fontSize: 14,
+                            color: AppColors.secondaryColor),
+                      ),
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      height: 29.h,
+                      width: 90.w,
+                      child: Text(
+                        "Hotels",
+                        style: TextStyle(
+                            fontFamily: Typo.InterRegular,
+                            fontSize: 14,
+                            color: AppColors.secondaryColor),
+                      ),
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      height: 29.h,
+                      width: 90.w,
+                      child: Text(
+                        "Books",
+                        style: TextStyle(
+                            fontFamily: Typo.InterRegular,
+                            fontSize: 14,
+                            color: AppColors.secondaryColor),
+                      ),
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      height: 29.h,
+                      width: 90.w,
+                      child: Text(
+                        "Books",
+                        style: TextStyle(
+                            fontFamily: Typo.InterRegular,
+                            fontSize: 14,
+                            color: AppColors.secondaryColor),
+                      ),
                     ),
                   ],
                 ),

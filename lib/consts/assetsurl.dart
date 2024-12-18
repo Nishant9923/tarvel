@@ -21,4 +21,17 @@ class Assetsurl {
   static String icrestaurants = "assets/icons/restaurants.svg";
   static String ictravel = "assets/images/travel.gif";
   static String icstar = "assets/icons/star.svg";
+  static String icbail = "assets/images/bail.png";
+  static String iciceland = "assets/images/iceland.png";
+  static String icjapan = "assets/images/japan.png";
+  static String icparis = "assets/images/paris.png";
+  static String ictimetraavel = "assets/images/timetotravel.png";
+  static String icrect3 = "assets/images/rect3.png";
+  static String icrating = "assets/icons/rating.svg";
+  static String icaiplaner = "assets/icons/aiplanner.svg";
+  static String icbeach = "assets/images/beach.png";
+  static String icmountain = "assets/images/mountain.png";
+  static String icjapan2 = "assets/images/japan.png";
+  static String icbxs = "assets/icons/bxs.svg";
+  static String icmaldives = "assets/images/maldives.png";
 }
