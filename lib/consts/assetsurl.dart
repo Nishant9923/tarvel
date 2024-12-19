@@ -34,4 +34,15 @@ class Assetsurl {
   static String icjapan2 = "assets/images/japan.png";
   static String icbxs = "assets/icons/bxs.svg";
   static String icmaldives = "assets/images/maldives.png";
+  static String icoffer1 = "assets/images/offer1.png";
+  static String icoffer2 = "assets/images/offer2.png";
+  static String icflight = "assets/icons/flight.svg";
+  static String icflight4 = "assets/icons/flight4.svg";
+  static String ichome = "assets/icons/home.svg";
+  static String icexplore = "assets/icons/explore.svg";
+  static String icaiplanner = "assets/icons/aiplanner.svg";
+  static String icblogs = "assets/icons/blogs.svg";
+  static String icchaina = "assets/images/chaina.png";
+  static String icmount1 = "assets/images/mount 1.png";
+  static String iccitytaj = "assets/images/city taj.png";
 }

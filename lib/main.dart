@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:travel/views/homescreen/home.dart';
 import 'package:travel/views/homescreen/home_scree.dart';
 import 'package:travel/views/language_screen.dart';
 import 'package:travel/views/login_screen.dart';
@@ -14,7 +15,7 @@ enum Routes {
   LoginScreen,
   otpscreen,
   LanguageScreen,
-  homeScreen,
+  home,
 }
 
 void main() {
@@ -51,9 +52,9 @@ class Travel extends StatelessWidget {
       builder: (context, state) => LanguageScreen(),
     ),
     GoRoute(
-      path: "/homeScreen",
-      name: Routes.homeScreen.name,
-      builder: (context, state) => HomeScreen(),
+      path: "/home",
+      name: Routes.home.name,
+      builder: (context, state) => Home(),
     ),
   ]);
 

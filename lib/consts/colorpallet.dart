@@ -25,4 +25,5 @@ class AppColors {
   static Color textcolor = Color(0xff222222);
   static Color contcolor = Color(0xffF2F3F5);
   static Color blackboldcolor = Color(0xff1C1C1C);
+  static Color dottedbordercolor = Color(0xffEDF5FA);
 }

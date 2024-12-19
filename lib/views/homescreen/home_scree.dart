@@ -1,3 +1,4 @@
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -6,9 +7,14 @@ import 'package:travel/consts/colorpallet.dart';
 import 'package:travel/consts/typography.dart';
 import 'package:travel/main.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   final List<String> names = [
     'Top Offers',
     'Flights',
@@ -16,7 +22,16 @@ class HomeScreen extends StatelessWidget {
     'Bus',
   ];
 
+  final List<String> items = [
+    "Top Offers",
+    "Flight",
+    "Hotels",
+    "Cars",
+  ];
+
   int selectedtabindex = 0;
+  int selectedIndex = -1;
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -570,6 +585,7 @@ class HomeScreen extends StatelessWidget {
                 height: 15.h,
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SvgPicture.asset(
                     height: 20.h,
@@ -605,88 +621,172 @@ class HomeScreen extends StatelessWidget {
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(),
-                        borderRadius: BorderRadius.circular(5),
+                  children: List.generate(items.length, (index) {
+                    return GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selectedIndex = index;
+                        });
+                      },
+                      child: SizedBox(
+                        child: Container(
+                          margin: EdgeInsets.all(10),
+                          height: 30.h,
+                          width: 100.w,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            border: Border.all(
+                                color: selectedIndex != index
+                                    ? AppColors.secondaryColor
+                                    : Colors.green),
+                          ),
+                          child: Center(
+                            child: Text(
+                              items[index],
+                              style: TextStyle(
+                                  fontFamily: Typo.InterRegular,
+                                  fontSize: 14,
+                                  color: selectedIndex != index
+                                      ? AppColors.textcolor
+                                      : AppColors.secondaryColor),
+                            ),
+                          ),
+                        ),
                       ),
-                      height: 29.h,
-                      width: 90.w,
-                      child: Text(
-                        "Top Offers",
-                        style: TextStyle(
-                            fontFamily: Typo.InterRegular,
-                            fontSize: 14,
-                            color: AppColors.secondaryColor),
-                      ),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(),
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      height: 29.h,
-                      width: 90.w,
-                      child: Text(
-                        "flight",
-                        style: TextStyle(
-                            fontFamily: Typo.InterRegular,
-                            fontSize: 14,
-                            color: AppColors.secondaryColor),
-                      ),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(),
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      height: 29.h,
-                      width: 90.w,
-                      child: Text(
-                        "Hotels",
-                        style: TextStyle(
-                            fontFamily: Typo.InterRegular,
-                            fontSize: 14,
-                            color: AppColors.secondaryColor),
-                      ),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(),
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      height: 29.h,
-                      width: 90.w,
-                      child: Text(
-                        "Books",
-                        style: TextStyle(
-                            fontFamily: Typo.InterRegular,
-                            fontSize: 14,
-                            color: AppColors.secondaryColor),
-                      ),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(),
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      height: 29.h,
-                      width: 90.w,
-                      child: Text(
-                        "Books",
-                        style: TextStyle(
-                            fontFamily: Typo.InterRegular,
-                            fontSize: 14,
-                            color: AppColors.secondaryColor),
-                      ),
-                    ),
-                  ],
+                    );
+                  }),
                 ),
+              ),
+              SizedBox(
+                height: 20.h,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  newMethod(),
+                  newMethod(),
+                ],
               )
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Container newMethod() {
+    return Container(
+      height: 220.h,
+      width: 171.w,
+      color: Colors.white,
+      child: Stack(
+        children: [
+          Image.asset(
+            Assetsurl.icoffer1,
+            width: double.infinity,
+            fit: BoxFit.cover,
+          ),
+          Positioned(
+            top: 95,
+            right: 11,
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                color: Colors.white,
+              ),
+              height: 28.h,
+              width: 93.w,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  CircleAvatar(
+                    radius: 15,
+                    backgroundColor: AppColors.blueAccent,
+                    child: SvgPicture.asset(
+                      Assetsurl.icflight4,
+                      height: 15.h,
+                    ),
+                  ),
+                  Text(
+                    'Flights',
+                    style: TextStyle(
+                      fontFamily: Typo.InterRegular,
+                      fontSize: 10.sp,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Positioned(
+            right: 13,
+            top: 130,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "New User Offer",
+                  style: TextStyle(
+                      fontFamily: Typo.InterSemiBold,
+                      fontSize: 14,
+                      color: Colors.black),
+                ),
+                Text(
+                  "Sign up & enjoy a discount on\nyour first flight booking with us!",
+                  style: TextStyle(
+                      fontFamily: Typo.InterRegular,
+                      fontSize: 8,
+                      color: Colors.black),
+                ),
+                SizedBox(
+                  height: 8.h,
+                ),
+                DottedBorder(
+                  color: AppColors.blueAccent,
+                  dashPattern: [4, 4],
+                  borderType: BorderType.RRect,
+                  radius: Radius.circular(5),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: AppColors.dottedbordercolor,
+                    ),
+                    height: 25.h,
+                    width: 148.w,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Text(
+                          'Use Code:',
+                          style: TextStyle(
+                              fontFamily: Typo.InterRegular,
+                              fontSize: 9.sp,
+                              color: Colors.black),
+                        ),
+                        Text(
+                          'ACEFIRST',
+                          style: TextStyle(
+                              fontFamily: Typo.InterRegular,
+                              fontSize: 8.sp,
+                              color: Colors.black),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10.h,
+                ),
+                Text(
+                  "Valid till: 30th Nov, 2024",
+                  style: TextStyle(
+                      fontFamily: Typo.InterRegular,
+                      fontSize: 9.sp,
+                      color: Colors.black),
+                ),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
